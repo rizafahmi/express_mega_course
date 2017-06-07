@@ -10,7 +10,16 @@ app.get('/', (req, res) => {
   const user = {
     username: 'riza'
   }
-  return res.render('index', { user: user })
+  const courses = [
+    { id: 1, title: 'Introduction to ExpressJS' },
+    { id: 2, title: 'Database with NodeJS and ExpressJS' }
+  ]
+
+  return res.render('index', {
+    user: user,
+    title: 'Welcome to Express Course',
+    courses: courses
+  })
 })
 
 app.listen(3000, (err) => {

@@ -1,5 +1,6 @@
-html
-  head
-    title Express Course
-  body
-    h1 #{user.username}
+extends layout.pug
+
+block content
+    ul
+      each course in courses
+        li #{course.title}

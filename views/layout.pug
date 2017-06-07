@@ -1,0 +1,15 @@
+html
+  head
+    if title
+      title #{title}
+    else
+      title Express Course
+    block css
+    block js
+  body
+    block header
+      h1 #{user.username}
+    block content
+    block footer
+      footer
+        p &copy; 2017 Express Course
