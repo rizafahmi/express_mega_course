@@ -1,5 +1,12 @@
 const path = require('path')
 const express = require('express')
+const mongoose = require('mongoose')
+
+mongoose.connect('mongodb://localhost/test')
+const db = mongoose.connection
+db.once('open', () => {
+  console.log('Connected to mongodb!')
+})
 
 const app = express()
 
