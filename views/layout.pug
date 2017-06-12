@@ -5,11 +5,31 @@ html
     else
       title Express Course
     block css
+      link(href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200", rel="stylesheet")
+      link(href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css")
+      link(href="/css/bootstrap.min.css", rel="stylesheet")
+      link(href="/css/now-ui-kit.css", rel="stylesheet")
     block js
-  body
+  body.template-page
     block header
-      h1 #{user.username}
-    block content
-    block footer
-      footer
-        p &copy; 2017 Express Course
+      nav.navbar.navbar-toggleable-md.bg-white.fixed-top
+        .container
+          a.navbar-brand(href="/") Express Course
+          .collapse.navbar-collapse.justify-content-end#navigation
+            ul.navbar-nav
+              li.nav-item
+                a.nav-link(href="/register")
+                  p Register
+              li.nav-item
+                a.nav-link(href="/login")
+                  p Login
+      if user
+        h1 #{user.username}
+      .wrapper
+        .section.text-center(style="padding: 100px")
+          block content
+        .footer.footer-default
+          .container
+            block footer
+              footer
+                .copyright &copy; 2017 Express Course
