@@ -2,6 +2,8 @@ const path = require('path')
 const express = require('express')
 const mongoose = require('mongoose')
 
+const userController = require('./controllers/userController.js')
+
 mongoose.connect('mongodb://localhost/test')
 const db = mongoose.connection
 db.once('open', () => {
@@ -10,6 +12,7 @@ db.once('open', () => {
 
 const app = express()
 
+app.use(express.static('public'))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
 
@@ -28,6 +31,8 @@ app.get('/', (req, res) => {
     courses: courses
   })
 })
+
+app.get('/register', userController.registerForm)
 
 app.listen(3000, (err) => {
   if (err) throw err
