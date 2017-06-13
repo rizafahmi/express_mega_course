@@ -1,21 +1,13 @@
 extends layout
 
 block content
-  h2.title #{title}
-  .row
-    form.col-lg-6.text-center.offset-lg-3.col-md-8.offset-md-2(action="/register" method="POST")
-      .input-group.form-group-no-border.input-lg
-        span.input-group-addon
-          i.now-ui-icons.ui-1_email-85
-        input.form-control(type="email", placeholder="Your email address", name="email")
-      .input-group.form-group-no-border.input-lg
-        span.input-group-addon
-          i.now-ui-icons.ui-1_lock-circle-open
-        input.form-control(type="password", placeholder="Your super secret password", name="password")
-      .input-group.form-group-no-border.input-lg
-        span.input-group-addon
-          i.now-ui-icons.ui-1_lock-circle-open
-        input.form-control(type="password", placeholder="Confirm your super secret password", name="confirmPassword")
-      .send-button
+  h3.title #{title}
+  .example
+    form(action="/register" method="POST")
+      fieldset
+        input(type="text", placeholder="Your beautiful name", name="name", required)
+        input(type="email", placeholder="Your email address", name="email", required)
+        input(type="password", placeholder="Your super secret password", name="password", required)
+        input(type="password", placeholder="Confirm your super secret password", name="confirmPassword", required)
         button.btn.btn-primary.btn-round.btn-block.btn-lg(type="submit") Register
 

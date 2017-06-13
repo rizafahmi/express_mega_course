@@ -5,39 +5,33 @@ html
     else
       title Express Course
     block css
-      link(href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200", rel="stylesheet")
-      link(href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css")
-      link(href="/css/bootstrap.min.css", rel="stylesheet")
-      link(href="/css/now-ui-kit.css", rel="stylesheet")
+      link(href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic", rel="stylesheet")
+      link(href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css", rel="stylesheet")
+      link(href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css", rel="stylesheet")
+      link(href="http://milligram.io/styles/main.css", rel="stylesheet")
     block js
-      script(src="/js/core/jquery.3.2.1.min.js")
-      script(src="/js/core/tether.min.js")
-      script(src="/js/core/bootstrap.min.js")
-      script(src="/js/plugins/bootstrap-switch.js")
-      script(src="/js/plugins/nouislider.min.js")
-      script(src="/js/plugins/bootstrap-datepicker.js")
-      script(src="/js/plugins/jquery.sharrre.js")
-      script(src="/js/now-ui-kit.js")
-  body.template-page
-    block header
-      nav.navbar.navbar-toggleable-md.bg-white.fixed-top
-        .container
-          a.navbar-brand(href="/") Express Course
-          .collapse.navbar-collapse.justify-content-end#navigation
-            ul.navbar-nav
-              li.nav-item
-                a.nav-link(href="/register")
-                  p Register
-              li.nav-item
-                a.nav-link(href="/login")
-                  p Login
-      if user
-        h1 #{user.username}
-      .wrapper
-        .section.text-center(style="padding: 100px")
-          block content
-        .footer.footer-default
+  body
+    main.wrapper
+      block header
+        nav.navigation
           .container
-            block footer
-              footer
-                .copyright &copy; 2017 Express Course
+            a.navigation-title(href="/")
+              h1.title Express Course
+            ul.navigation-list.float-right
+              li.navigation-item
+                a.navigation-link(href="/register")
+                  p Register
+              li.navigation-item
+                a.navigation-link(href="/login")
+                  p Login
+        if user
+          h1 #{user.username}
+        .wrapper
+          .section.text-center(style="padding: 64px")
+      .container
+        block content
+
+      .footer.footer
+        .container
+          block footer
+            .copyright &copy; 2017 Express Course
