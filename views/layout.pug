@@ -4,34 +4,39 @@ html
       title #{title}
     else
       title Express Course
+    meta(name="viewport" content="width=device-width, initial-scale=1")
     block css
-      link(href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic", rel="stylesheet")
-      link(href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css", rel="stylesheet")
-      link(href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css", rel="stylesheet")
-      link(href="http://milligram.io/styles/main.css", rel="stylesheet")
+
+      link(href="/css/application.css", rel="stylesheet")
+      link(href="/css/main.css", rel="stylesheet")
+      link(rel="shortcut icon" href="img/favicon.png")
     block js
   body
-    main.wrapper
+    main.grid
       block header
-        nav.navigation
-          .container
-            a.navigation-title(href="/")
-              h1.title Express Course
-            ul.navigation-list.float-right
-              li.navigation-item
-                a.navigation-link(href="/register")
-                  p Register
-              li.navigation-item
-                a.navigation-link(href="/login")
-                  p Login
+        .grid
+          header.grid__col--12.panel--padded--centered
+            a(href="/")
+              h1 😑 Express Course
+            .navbar
+              ul.nav(role="navigation")
+                li.nav__item
+                  a(href="/register") Register
+                li.nav__item
+                  a(href="/login") Login
         if user
           h1 #{user.username}
-        .wrapper
-          .section.text-center(style="padding: 64px")
-      .container
-        block content
+      block messages
+        if locals.flashes
+          .grid
+            .flashes.grid__col--7.panel--padded.centered
+              - const categories = Object.keys(flashes)
+              each category in categories
+                ul.flashes
+                  each message in flashes[category]
+                    li(class=`flash-${category}`)!= message
+      block content
 
-      .footer.footer
-        .container
+      footer.footer.grid__col--12.panel--padded--centered
           block footer
             .copyright &copy; 2017 Express Course

@@ -1,0 +1,18 @@
+footer {
+  margin-top: 5em;
+}
+
+header {
+  border-bottom: 1px solid #ebecec;
+}
+
+.flashes {
+}
+
+.flash-error {
+  background-color: #FFE3DB;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 1em;
+  margin-bottom: 1em;
+}

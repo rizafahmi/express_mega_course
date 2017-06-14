@@ -1,13 +1,13 @@
 extends layout
 
 block content
-  h3.title #{title}
-  .example
-    form(action="/register" method="POST")
-      fieldset
-        input(type="text", placeholder="Your beautiful name", name="name", required)
-        input(type="email", placeholder="Your email address", name="email", required)
-        input(type="password", placeholder="Your super secret password", name="password", required)
-        input(type="password", placeholder="Confirm your super secret password", name="confirmPassword", required)
-        button.btn.btn-primary.btn-round.btn-block.btn-lg(type="submit") Register
+  h2.grid #{title}
+  .grid
+    .centered.grid__col--7
+      form(action="/register" method="POST")
+          input(type="text" placeholder="Your beautiful name" name="name" class="form__input")
+          input(type="email" placeholder="Your email address" name="email" class="form__input" required)
+          input(type="password" placeholder="Your super secret password" name="password" class="form__input" required)
+          input(type="password" placeholder="Confirm your super secret password" name="confirmPassword" class="form__input" required)
+          input.form__btn(type="submit" value="Register")
 
